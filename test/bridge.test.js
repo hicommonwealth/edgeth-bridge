@@ -92,7 +92,7 @@ contract('Bridge', function(accounts) {
       bridge = await Bridge.new(validators.addresses, validators.powers, {from: args._default});
     });
 
-    it('Recieves Normal ERC20 and emits Lock event', async function () {
+    it('Receives Normal ERC20 and emits Lock event', async function () {
       let standardTokenMock = await MockERC20Token.new(_account_one, 10000, {from: args._default});
       await standardTokenMock.approve(bridge.address, 1000, {from: args._account_one});
       let res = await bridge.lock("0xdeadbeef", standardTokenMock.address, 1000, {from: args._account_one});
