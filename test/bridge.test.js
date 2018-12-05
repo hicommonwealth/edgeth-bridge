@@ -86,7 +86,7 @@ contract('Bridge', function(accounts) {
 
 
   describe('lock(bytes,address,uint64)', function () {
-    let res, Bridge, edgewareTokenAddress, standardTokenMock;
+    let res, bridge, edgewareTokenAddress, standardTokenMock;
 
     beforeEach('Sets up Bridge contract', async function () {
       bridge = await Bridge.new(validators.addresses, validators.powers, {from: args._default});
@@ -95,7 +95,7 @@ contract('Bridge', function(accounts) {
     it('Recieves Normal ERC20 and emits Lock event', async function () {
       let standardTokenMock = await MockERC20Token.new(_account_one, 10000, {from: args._default});
       await standardTokenMock.approve(bridge.address, 1000, {from: args._account_one});
-      let res = await Bridge.lock("0xdeadbeef", standardTokenMock.address, 1000, {from: args._account_one});
+      let res = await bridge.lock("0xdeadbeef", standardTokenMock.address, 1000, {from: args._account_one});
 
       assert.equal((await standardTokenMock.balanceOf(bridge.address)).toNumber(), 1000);
       assert.strictEqual(res.logs.length, 1);
@@ -107,17 +107,16 @@ contract('Bridge', function(accounts) {
 
 
     it('Burns EdgewareERC20 and emits Lock event', async function () {
-
       let hashData = String(await bridge.hashNewEdgewareERC20.call('EdgewareToken', 18));
       let signatures = await utils.createSigns(validators, hashData);
       let edgewareTokenAddress = await bridge.newEdgewareERC20.call('EdgewareToken', 18, signatures.signers, signatures.vArray, signatures.rArray, signatures.sArray);
       await bridge.newEdgewareERC20('EdgewareToken', 18, signatures.signers, signatures.vArray, signatures.rArray, signatures.sArray);
       let edgewareToken = EdgewareERC20.at(edgewareTokenAddress);
-      hashData = await Bridge.hashUnlock(_account_one, edgewareTokenAddress, 1000);
+      hashData = await bridge.hashUnlock(_account_one, edgewareTokenAddress, 1000);
       signatures = await utils.createSigns(validators, hashData);
-      await Bridge.unlock(_account_one, edgewareTokenAddress, 1000, signatures.signers, signatures.vArray, signatures.rArray, signatures.sArray);
+      await bridge.unlock(_account_one, edgewareTokenAddress, 1000, signatures.signers, signatures.vArray, signatures.rArray, signatures.sArray);
 
-      let res = await Bridge.lock("0xdeadbeef", edgewareTokenAddress, 500, {from: args._account_one});
+      let res = await bridge.lock("0xdeadbeef", edgewareTokenAddress, 500, {from: args._account_one});
 
       assert.equal((await edgewareToken.balanceOf(_account_one)).toNumber(), 500);
       assert.strictEqual(res.logs.length, 1);
@@ -129,9 +128,9 @@ contract('Bridge', function(accounts) {
 
     it('Sends Ether when token is 0 address and emits Lock event', async function () {
 
-      let res = await Bridge.lock("0xdeadbeef", _address0, 1000, {from: args._account_one, value: 1000});
+      let res = await bridge.lock("0xdeadbeef", _address0, 1000, {from: args._account_one, value: 1000});
 
-      let ethBalance = await web3.eth.getBalance(Bridge.address);
+      let ethBalance = await web3.eth.getBalance(bridge.address);
 
       assert.equal(ethBalance.toNumber(), 1000);
       assert.strictEqual(res.logs.length, 1);
@@ -144,18 +143,18 @@ contract('Bridge', function(accounts) {
 
 
   describe('unlock(address,address,uint64,uint[],uint8[],bytes32[],bytes32[])', function () {
-    let Bridge, res;
+    let bridge, res;
 
     beforeEach('Sets up Bridge contract', async function () {
       bridge = await Bridge.new(validators.addresses, validators.powers, {from: args._default});
     });
 
     it('Sends Normal ERC20 and emits Unlock event', async function () {
-      let standardTokenMock = await MockERC20Token.new(Bridge.address, 10000, {from: args._default});
-      let hashData = await Bridge.hashUnlock(_account_one, standardTokenMock.address, 1000);
+      let standardTokenMock = await MockERC20Token.new(bridge.address, 10000, {from: args._default});
+      let hashData = await bridge.hashUnlock(_account_one, standardTokenMock.address, 1000);
       let signatures = await utils.createSigns(validators, hashData);
 
-      res = await Bridge.unlock(args._account_one, standardTokenMock.address, 1000, signatures.signers, signatures.vArray, signatures.rArray, signatures.sArray);
+      res = await bridge.unlock(args._account_one, standardTokenMock.address, 1000, signatures.signers, signatures.vArray, signatures.rArray, signatures.sArray);
       assert.equal((await standardTokenMock.balanceOf(_account_one)).toNumber(), 1000);
 
       assert.strictEqual(res.logs.length, 1);
@@ -173,10 +172,10 @@ contract('Bridge', function(accounts) {
       await bridge.newEdgewareERC20('EdgewareToken', 18, signatures.signers, signatures.vArray, signatures.rArray, signatures.sArray);
       let edgewareToken = EdgewareERC20.at(edgewareTokenAddress);
 
-      hashData = await Bridge.hashUnlock(_account_one, edgewareTokenAddress, 1000);
+      hashData = await bridge.hashUnlock(_account_one, edgewareTokenAddress, 1000);
       signatures = await utils.createSigns(validators, hashData);
 
-      res = await Bridge.unlock(_account_one, edgewareTokenAddress, 1000, signatures.signers, signatures.vArray, signatures.rArray, signatures.sArray);
+      res = await bridge.unlock(_account_one, edgewareTokenAddress, 1000, signatures.signers, signatures.vArray, signatures.rArray, signatures.sArray);
       assert.equal((await edgewareToken.balanceOf(_account_one)).toNumber(), 1000);
 
       assert.strictEqual(res.logs.length, 1);
@@ -188,13 +187,13 @@ contract('Bridge', function(accounts) {
 
     it('Sends Ether when token is address 0x0 and emits Unlock event', async function () {
       // fund the Bridge contract with a little bit of ether
-      await Bridge.lock("0xdeadbeef", _address0, 5000, {from: args._account_two, value: 5000});
+      await bridge.lock("0xdeadbeef", _address0, 5000, {from: args._account_two, value: 5000});
 
       let oldBalance = await web3.eth.getBalance(_account_one);
 
-      let hashData = await Bridge.hashUnlock(_account_one, _address0, 1000);
+      let hashData = await bridge.hashUnlock(_account_one, _address0, 1000);
       let signatures = await utils.createSigns(validators, hashData);
-      res = await Bridge.unlock(args._account_one, args._address0, 1000, signatures.signers, signatures.vArray, signatures.rArray, signatures.sArray);
+      res = await bridge.unlock(args._account_one, args._address0, 1000, signatures.signers, signatures.vArray, signatures.rArray, signatures.sArray);
       assert.equal(await web3.eth.getBalance(_account_one).toNumber(), oldBalance.toNumber() + 1000);
 
       assert.strictEqual(res.logs.length, 1);

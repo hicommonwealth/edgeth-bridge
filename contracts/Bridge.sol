@@ -49,7 +49,7 @@ contract Bridge is ValidatorSet {
           require(tokenAddr == address(0));
           require(msg.value == amount);
         } else if (edgewareTokenAddresses[tokenAddr]) {
-          EdgewareERC20(tokenAddr).burnFrom(msg.sender, amount);
+          EdgewareERC20(tokenAddr).burn(msg.sender, amount);
         } else {
           require(ERC20(tokenAddr).transferFrom(msg.sender, this, amount));
         }
