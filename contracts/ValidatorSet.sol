@@ -1,6 +1,5 @@
 pragma solidity ^0.4.22;
 
-
 contract ValidatorSet {
 
     /* Variables */
@@ -34,7 +33,7 @@ contract ValidatorSet {
     /* Functions */
 
     function hashValidatorArrays(address[] addressesArr, uint64[] powersArr) public pure returns (bytes32 hash) {
-        return keccak256(addressesArr, powersArr);
+        return keccak256(abi.encodePacked(addressesArr, powersArr));
     }
 
     function verifyValidators(bytes32 hash, uint[] signers, uint8[] v, bytes32[] r, bytes32[] s) public constant returns (bool) {
@@ -63,7 +62,7 @@ contract ValidatorSet {
             totalPower  += newPowers[i];
         }
         uint updateCount = updateSeq;
-        Update(addresses, powers, updateCount);
+        emit Update(addresses, powers, updateCount);
         updateSeq++;
         return true;
     }
@@ -79,7 +78,7 @@ contract ValidatorSet {
      * @param s           output of ECDSA signature.  Used to compute ecrecover
      */
     function update(address[] newAddress, uint64[] newPowers, uint[] signers, uint8[] v, bytes32[] r, bytes32[] s) public {
-        bytes32 hashData = keccak256(newAddress, newPowers);
+        bytes32 hashData = keccak256(abi.encodePacked(newAddress, newPowers));
         require(verifyValidators(hashData, signers, v, r, s)); // hashing can be changed
         require(updateInternal(newAddress, newPowers));
     }
