@@ -1,0 +1,1 @@
+/Users/drewstone/src/eth/cw/edgeth_bridge/watcher/target/debug/watcher.dSYM: /Users/drewstone/src/eth/cw/edgeth_bridge/watcher/src/./build/SimpleEvent.abi /Users/drewstone/src/eth/cw/edgeth_bridge/watcher/src/./build/SimpleEvent.bin /Users/drewstone/src/eth/cw/edgeth_bridge/watcher/src/main.rs

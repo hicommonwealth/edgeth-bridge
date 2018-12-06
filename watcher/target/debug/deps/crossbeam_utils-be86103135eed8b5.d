@@ -1,0 +1,10 @@
+/Users/drewstone/src/eth/cw/edgeth_bridge/watcher/target/debug/deps/crossbeam_utils-be86103135eed8b5.rmeta: /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/lib.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/atomic/mod.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/atomic/consume.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/cache_padded.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/thread.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/thread.rs
+
+/Users/drewstone/src/eth/cw/edgeth_bridge/watcher/target/debug/deps/crossbeam_utils-be86103135eed8b5.d: /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/lib.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/atomic/mod.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/atomic/consume.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/cache_padded.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/thread.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/thread.rs
+
+/Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/lib.rs:
+/Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/atomic/mod.rs:
+/Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/atomic/consume.rs:
+/Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/cache_padded.rs:
+/Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/thread.rs:
+/Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/crossbeam-utils-0.6.1/src/thread.rs:

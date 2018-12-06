@@ -1,0 +1,1 @@
+{"rustc":5380161196970549020,"features":"[]","target":9842045341086751681,"profile":14245719688690734572,"path":11478424244245572707,"deps":[["futures v0.1.25","futures",330395646138278329],["native-tls v0.2.2","native_tls",5065667426729979768],["tokio-io v0.1.10","tokio_io",520071673367069319]],"local":[{"Precalculated":"0.2.0"}],"rustflags":[],"edition":"Edition2015"}

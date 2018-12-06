@@ -1,0 +1,10 @@
+/Users/drewstone/src/eth/cw/edgeth_bridge/watcher/target/debug/deps/parking_lot_core-4643f99f850ce54e.rmeta: /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/lib.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/thread_parker/unix.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/spinwait.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/util.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/word_lock.rs
+
+/Users/drewstone/src/eth/cw/edgeth_bridge/watcher/target/debug/deps/parking_lot_core-4643f99f850ce54e.d: /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/lib.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/thread_parker/unix.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/spinwait.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/util.rs /Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/word_lock.rs
+
+/Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/lib.rs:
+/Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/thread_parker/unix.rs:
+/Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:
+/Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/spinwait.rs:
+/Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/util.rs:
+/Users/drewstone/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/word_lock.rs:
