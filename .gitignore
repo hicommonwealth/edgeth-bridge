@@ -2,3 +2,4 @@ build/
 node_modules/
 .DS_STORE
 *.lock
+watcher/target
