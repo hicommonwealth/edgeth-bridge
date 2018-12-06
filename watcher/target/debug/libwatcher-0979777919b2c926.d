@@ -1,1 +1,0 @@
-/Users/drewstone/src/eth/cw/edgeth_bridge/watcher/target/debug/libwatcher-0979777919b2c926.rmeta: /Users/drewstone/src/eth/cw/edgeth_bridge/watcher/src/./build/SimpleEvent.abi /Users/drewstone/src/eth/cw/edgeth_bridge/watcher/src/./build/SimpleEvent.bin /Users/drewstone/src/eth/cw/edgeth_bridge/watcher/src/main.rs
