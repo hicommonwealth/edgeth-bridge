@@ -29,7 +29,7 @@ fn main() {
     let web3 = web3::Web3::new(web3::transports::Http::with_event_loop("http://localhost:8545", &eloop.handle(), 1).unwrap());
 
     // Get the contract bytecode for instance from Solidity compiler
-    let bytecode: Vec<u8> = include_str!("./build/SimpleEvent.bin").from_hex().unwrap();
+    let bytecode: Vec<u8> = include_str!("./compiled/SimpleEvent.bin").from_hex().unwrap();
 
     let event_future = |filter| {
         web3.eth_filter()
@@ -50,7 +50,7 @@ fn main() {
     eloop.run(web3.eth().accounts().then(|accounts| {
         let accounts = accounts.unwrap();
 
-        Contract::deploy(web3.eth(), include_bytes!("./build/SimpleEvent.abi"))
+        Contract::deploy(web3.eth(), include_bytes!("./compiled/SimpleEvent.abi"))
             .unwrap()
             .confirmations(0)
             .poll_interval(time::Duration::from_secs(10))
